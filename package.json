@@ -28,10 +28,22 @@
     "isima-install": "rm -f package-lock.json && npm install --no-bin-links",
     "isima-start": "./node_modules/babel-watch/babel-watch.js src/index.js -w src/views -w src/storage",
     "isima-test": "npm run isima-jest",
-    "isima-jest": "./node_modules/jest/bin/jest.js --coverage"
+    "isima-jest": "./node_modules/jest/bin/jest.js --coverage",
+    "ci_test": "CI=true react-scripts test --env=jsdom"
   },
   "jest": {
     "testEnvironment": "node",
     "verbose": true
   }
 }
+
+
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+    }
+  }
+}
+
+
